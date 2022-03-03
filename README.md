@@ -8,11 +8,13 @@ We assume that [__nomad__](https://learn.hashicorp.com/tutorials/nomad/get-start
 
 We need to run __nomad__ and __consul__ agent as dev mode for now to simplify testing
 
-```bash
+__nomad__
+```
 sudo nomad agent -dev -bind 0.0.0.0 -log-level INFO
 ```
 
-```bash
+__consul__
+```
 consul agent -dev
 ```
 
@@ -20,13 +22,13 @@ consul agent -dev
 
 We'll start __fabio__ as a nomad job
 
-```bash
+```
 nomad job run ./jobs/fabio.nomad
 ```
 
 Then we want to create "trame jobs" ideally as template job and rely on a dispatch mechanism.
 
-```bash
+```
 nomad job run ./jobs/trame-demo.nomad
 ```
 
