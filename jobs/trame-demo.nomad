@@ -11,7 +11,7 @@ job "trame-demo" {
     service {
       # template on "${NOMAD_ALLOC_ID}"
       name = "trame-demo"
-      tags = ["urlprefix-/demo"]
+      tags = ["urlprefix-/demo strip=/demo"]
       port = "http"
 
       check {
@@ -35,7 +35,7 @@ job "trame-demo" {
 
       resources {
         cpu    = 100 # MHz
-        memory = 256 # MB
+        memory = 50 # MB
       }
     }
   }

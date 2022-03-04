@@ -34,6 +34,12 @@ nomad job run ./jobs/trame-demo.nomad
 
 And we want to have fabio route traffic to those jobs using some kind of ids
 
+Connect client to fabio endpoint
+
+```
+http://localhost:9999/?name=demo&sessionURL=ws://10.70.88.146:9999/demo/ws
+```
+
 ## Web UI for -dev agents
 
 - nomad:  http://localhost:4646/
@@ -43,5 +49,5 @@ And we want to have fabio route traffic to those jobs using some kind of ids
 
 ## Cheatsheet
 
-Start job: `nomad job run ./jobs/trame-demo.nomad`
-Clear job: `nomad job stop -purge trame-demo`
+- Start job: `nomad job run ./jobs/trame-demo.nomad`
+- Clear job: `nomad job stop -purge trame-demo`
