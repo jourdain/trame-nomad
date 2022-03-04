@@ -1,6 +1,12 @@
-job "trame-demo" {
+job "trame-demo-secret" {
   datacenters = ["dc1"]
   type = "batch"
+
+
+  parameterized {
+    payload       = "forbidden"
+    meta_required = ["SECRET"]
+  }
 
   group "trame" {
 
@@ -15,7 +21,7 @@ job "trame-demo" {
         image = "jourdain/trame-apps:demo"
         args = [
             "--port", "${NOMAD_PORT_http}",
-            "--authKey", "wslink-secret",
+            "--authKey", "${NOMAD_META_SECRET}",
         ]
         ports = ["http"]
       }

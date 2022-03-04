@@ -30,6 +30,7 @@ Then we want to create "trame jobs" ideally as template job and rely on a dispat
 
 ```
 nomad job run ./jobs/trame-demo.nomad
+nomad job run ./jobs/trame-demo-secret.nomad
 ```
 
 And we want to have fabio route traffic to those jobs using some kind of ids
@@ -37,7 +38,17 @@ And we want to have fabio route traffic to those jobs using some kind of ids
 Connect client to fabio endpoint
 
 ```
-http://localhost:9999/?name=demo&sessionURL=ws://localhost:9999/demo/ws
+http://localhost:9999/${ALLOCATION_ID}/
+```
+
+Dispatch job with secrets
+
+```
+nomad job dispatch -meta SECRET=xyz trame-demo-secret
+```
+
+```
+http://localhost:9999/${ALLOCATION_ID}/?name&secret=xyz
 ```
 
 ## Web UI for -dev agents
