@@ -11,7 +11,7 @@ job "http-echo" {
 
         service {
             name = "echo"
-            tags = ["urlprefix-/echo"]
+            tags = ["urlprefix-/"]
             port = "http"
             check {
                 name = "alive"

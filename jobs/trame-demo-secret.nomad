@@ -19,6 +19,7 @@ job "trame-demo-secret" {
 
       config {
         image = "jourdain/trame-apps:demo"
+        force_pull=true
         args = [
             "--port", "${NOMAD_PORT_http}",
             "--authKey", "${NOMAD_META_SECRET}",

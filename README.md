@@ -29,16 +29,7 @@ nomad job run ./jobs/fabio.nomad
 Then we want to create "trame jobs" ideally as template job and rely on a dispatch mechanism.
 
 ```
-nomad job run ./jobs/trame-demo.nomad
 nomad job run ./jobs/trame-demo-secret.nomad
-```
-
-And we want to have fabio route traffic to those jobs using some kind of ids
-
-Connect client to fabio endpoint
-
-```
-http://localhost:9999/${ALLOCATION_ID}/
 ```
 
 Dispatch job with secrets
