@@ -1,17 +1,17 @@
-job "trame-demo" {
+job "trame-www" {
   datacenters = ["dc1"]
-  type = "batch"
+  type = "service"
 
   group "trame" {
 
     network {
-      port "http" {}
+      port "http" { to = 80 }
     }
 
     service {
       # template on "${NOMAD_ALLOC_ID}"
-      name = "trame-demo"
-      tags = ["urlprefix-/demo"]
+      name = "trame-www"
+      tags = ["urlprefix-/"]
       port = "http"
 
       check {
@@ -26,10 +26,7 @@ job "trame-demo" {
       driver = "docker"
 
       config {
-        image = "jourdain/trame-apps:demo"
-        args = [
-            "--port", "${NOMAD_PORT_http}",
-        ]
+        image = "jourdain/trame-apps:www"
         ports = ["http"]
       }
 
