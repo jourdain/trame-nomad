@@ -43,7 +43,7 @@ http://localhost:9999/?name=demo&sessionURL=ws://10.70.88.146:9999/demo/ws
 ## Web UI for -dev agents
 
 - nomad:  http://localhost:4646/
-- consul: ?
+- consul: http://localhost:8500/ (Not working when not localhost?)
 - fabio:  http://localhost:9998/
 
 
